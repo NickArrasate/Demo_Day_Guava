@@ -4,7 +4,7 @@
   "main": "index.html",
   "postinstall": "gulp build",
   "scripts": {
-    "start":"gulp serve",
+    "start":"open index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
