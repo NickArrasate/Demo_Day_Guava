@@ -21,7 +21,7 @@ var lib = require('bower-files')({
   }
 });
 
-var buildProduction = true;
+var buildProduction = false;
 
 gulp.task('serve', function() {
   browserSync.init({
