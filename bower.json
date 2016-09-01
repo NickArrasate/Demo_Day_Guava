@@ -1,5 +1,5 @@
 {
-  "name": "satanagrams",
+  "name": "Guavagrams",
   "description": "grams of banana",
   "main": "index.js",
   "license": "ISC",
@@ -17,6 +17,10 @@
     "bootstrap": "^3.3.6"
   },
   "authors": [
-    "Samuel Durfey"
+    "Samuel Durfey",
+    "Nick Arrasate",
+    "Ryan Harvey",
+    "Peter Beach"
+
   ]
 }

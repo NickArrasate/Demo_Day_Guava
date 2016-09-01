@@ -4382,7 +4382,7 @@ var newLetter;
 $(document).ready(function(){
   //Game Start
   $('#run').click(function(){
-  $.playSound('sounds/wow2');
+    // $.playSound('sounds/wow2');//plays "wooooow"
     $('.intro-screen').hide();
     $('.gameBoard').slideDown();
     $('.handDisplay').slideDown();
@@ -4414,7 +4414,7 @@ $(document).ready(function(){
         $(this).droppable('option', 'accept', '.gameTile');
       }
     });
-
+//Dump area logic
     $('.dump').droppable({
       accept: ".gameTile",
       tolerance: "intersect",
@@ -4447,15 +4447,12 @@ $(document).ready(function(){
   //Clock
   $("#timer").hide();
   var update = function(htmlElement) {
-    currentTime = moment().minute(6).second($counter--).format('mm : ss');
+    currentTime = moment().minute(1).second($counter--).format('mm : ss');
     scoreTime = moment().minute(0).second(scoreCounter++).format('mm : ss');
     htmlElement.text(currentTime);
     if (currentTime === "00 : 00") {
-      $(".hard-wrapper").html('<h3 id="title">YOU LOSE.</h3><iframe width="420" height="315" src="https://www.youtube.com/embed/M5QGkOGZubQ?autoplay=1" frameborder="0" allowfullscreen></iframe>');
-      var video = $(iframe);
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      }
+      $(".hard-wrapper").html('<h3 id="title">You lost! Try again.</h3><a id="restart-button" class="btn btn-info" href="/">New Game</a>');
+      $('#end-screen').slideDown();
     }
   };
   update($("time"));
@@ -4500,6 +4497,7 @@ $(document).ready(function(){
     testArrayAll = testArrayRows.concat(testArrayCols);
     var enteredWord = '';
 
+//test to see that letters are connected and all letters are used
     if (lettersConnected && lettersUsed) {
       $.get("./../../SOWPODS.txt").then(function(response) {
         var dict = response.split("\n");
@@ -4511,13 +4509,15 @@ $(document).ready(function(){
             }
           }
         }
+        // If the list of non-word items is 0 the game is won
         if (notWordArray.length === 0) {
           clearInterval(updateInterval);
           $('#finalTime').append(scoreTime);
           $('.gameBoard').slideUp();
           $('.handDisplay').slideUp();
           $("#timer").slideUp();
-          $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
+          // $("#end-screen").append('<iframe src="//coub.com/embed/409y8?muted=false&autostart=true&originalSize=false&startWithHD=true" allowfullscreen="true" frameborder="0" width="640" height="360"></iframe>');
+          $('#end-screen').append('<h3 id="title">Congratulations!</h3><h3 id="timeh3">Your Time Was: <span id="finalTime"></span></h3>')
           $('#end-screen').slideDown();
           // win condition
         } else {

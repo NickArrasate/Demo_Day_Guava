@@ -41,6 +41,13 @@ h3{
   text-align: center;
 }
 
+#restart-button {
+  margin:0;
+  margin-top: 4em;
+  width: 100%;
+  text-align: center;
+  align-self: center;
+}
 #title {
   text-align: center;
   font-family: 'Ceviche One', cursive;
@@ -50,6 +57,7 @@ h3{
   padding-bottom: 20px;
   text-shadow: -2px 2px #ff9900;
 }
+
 .gameTile{
   text-align: center;
   padding-top: 3.5px;
@@ -179,7 +187,6 @@ iframe {
 @media screen and (max-width: 1300px) {
     .container {
       max-width: 1000px;
-      padding-bottom: 500px;
     }
 
     .handDisplay{
